@@ -271,7 +271,7 @@ public abstract class ShareIntent {
                 chooser.putExtra(Intent.EXTRA_EXCLUDE_COMPONENTS, getExcludedComponentArray(options.getArray("excludedActivityTypes")));
                 activity.startActivity(chooser);
             } else {
-                activity.startActivityForResult(excludeChooserIntent(this.getIntent(),options), RNShareModule.SHARE_REQUEST_CODE);
+                activity.startActivity(excludeChooserIntent(this.getIntent(),options));
             }
         } else {
             activity.startActivity(chooser);
