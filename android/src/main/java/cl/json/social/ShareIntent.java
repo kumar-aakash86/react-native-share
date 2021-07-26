@@ -269,12 +269,12 @@ public abstract class ShareIntent {
         if (ShareIntent.hasValidKey("excludedActivityTypes", options)) {
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
                 chooser.putExtra(Intent.EXTRA_EXCLUDE_COMPONENTS, getExcludedComponentArray(options.getArray("excludedActivityTypes")));
-                activity.startActivityForResult(chooser, RNShareModule.SHARE_REQUEST_CODE);
+                activity.startActivity(chooser);
             } else {
                 activity.startActivityForResult(excludeChooserIntent(this.getIntent(),options), RNShareModule.SHARE_REQUEST_CODE);
             }
         } else {
-            activity.startActivityForResult(chooser, RNShareModule.SHARE_REQUEST_CODE);
+            activity.startActivity(chooser);
         }
 
         if (intentSender == null) {
